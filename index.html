@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Find a Coffee</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Find a closest coffee shops">
+        <meta name="keywords" content="Coffee Shops, Geolocation">
+        <meta name="author" content="milang">
+
+        <link href="libs/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="icon" href="libs/img/favicon.png">
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        
+    </head>
+    <body>
+        <header>
+            <div class="main-container">
+                <div id="brandname">
+                    <a href="index.html">
+                        <h1>Find-a-Coffee</h1>
+                    </a>
+                </div>
+
+                <a class="menu-icon" href="javascript:void(0)" onclick="toggleMenu()"></a>
+                
+                <nav>
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="search-area">
+            <form>
+                <div class="search-fields">
+                    <span class="search-input-icon">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" placeholder="I'm looking for...">
+                </div>
+                <div class="search-fields">
+                    <span class="search-input-icon">
+                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" placeholder="Map View...">
+                </div>
+                
+                <a id="searchButton" href="javascript:void(0);">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+            </form>
+            <div id="sort-coffee-shops">
+                <button onclick="sortByDistance()">Sort by Distance</button>
+                <button onclick="sortByName()">Sort by Name</button>
+            </div>
+        </section>
+
+        <section id="main-content">
+            <div id="coffe-shops-list">
+
+            </div>
+            <div id="map"></div>
+        </section>
+
+
+        <!-- Modal -->
+        <section id="detailsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn" onclick="closeModal();">&times;</span>
+                    <h2>Details</h2>
+                </div>
+                <div class="modal-body">
+                    <p>test modal</p>
+                </div>
+            </div>
+        </section>
+        <!-- Modal END -->
+
+        <footer>
+            <p>Copyright &copy; 2017</p>
+        </footer>
+
+        <script type="text/javascript" src="libs/js/app.min.js"></script>
+        <!-- <script type="text/javascript" src="libs/js/app.js"></script> -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-Y__UkiTkLn4KRi4B5n0gQX16lNO0zGo&callback=initMap"></script>
+    </body>
+</html>

@@ -1,0 +1,574 @@
+
+//Variables
+@import 'variables';
+
+//Pages
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+    background: $body-color;
+}
+.main-container{
+    width: 90%;
+    margin:0 auto;
+}
+
+header li.active a{
+    color:$active-page;
+}
+
+header{
+    width:100%;
+    min-height: 70px;
+    background: $nav-color;
+    border-bottom: 2px solid $active-page;
+    #brandname{
+        float: left;
+        a{
+            padding:0;
+            text-decoration: none;
+        }
+        h1{
+            line-height: 70px;
+            color: $font-color;
+            font-weight: bold;
+        }
+    }
+    .menu-icon{
+        display: none;
+        float: right;
+        margin-top: 15px;
+        background: url('../img/menu-icon-1.png') no-repeat center;
+        width:40px;
+        height: 40px;
+        &:hover{
+            opacity: 0.50;
+        }
+    }
+    nav{
+        float:right;
+    }
+    ul{
+        margin-top:10px;
+    }
+    li{
+        display: inline-block;
+        a{
+            display: block;
+            color: $font-color;
+            font-size:22px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 15px;
+            &:after{
+                content:"";
+                display: block;
+                width: 0;
+                height: 3px;
+                background: $font-color;
+                transition: width .3s;
+            }
+            &:hover{
+                &:after{
+                    width:100%;
+                }
+            }
+            
+        }
+    }
+}
+
+#search-area{
+    width: 100%;
+    background: $nav-title;
+    overflow: hidden;
+    border-bottom: 3px solid #07112c;
+    form{
+        float:right;
+        padding:10px 0px;
+        margin:0px 20px;
+        overflow: hidden;
+        .search-fields{
+            float: left;
+            position: relative;
+            margin-left: 10px;
+            .search-input-icon{
+                position: absolute;
+                right:8px;
+                top:6px;
+                color: #bfbfbf;
+                &:hover{
+                    color:#8c8c8c;
+                    cursor: pointer;
+                }
+            }
+        }
+        input[type="text"]{
+            width:200px;
+            height: 25px;
+            padding: 5px;
+            border:none;
+            border-radius: 3px;
+        }
+        .fa.fa-search{
+            font-size: 1.5em;
+            color: $font-color;
+            margin-left:15px;
+            margin-top: 5px;
+        }        
+    }
+    #sort-coffee-shops{
+        float:left;
+        margin-top:15px;
+        margin-left: 30px;
+        button{
+            padding:5px 10px;
+            margin-left:15px;
+            border: none;
+            border-radius:3px;
+            color: #4d4d4d;
+            font-weight: bold;
+            background: #d9d9d9;
+            transition: all .3s ease-in-out;
+            &:hover{
+                background: $font-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#main-content{
+    width:100%;
+    height: 81vh;
+    overflow: hidden;
+    #coffe-shops-list{
+        float:left;
+        min-width: 30%;
+        height: 100%;
+        background:linear-gradient(#80ccff, #e6f5ff);
+        padding:10px;
+        box-sizing: border-box;
+        border-right: 1px solid $black;
+        .shop-thumb{
+            background: $light-gray;
+            opacity: 0.9;
+            border:1px solid silver;
+            border-radius: 3px;
+            box-sizing: border-box;
+            padding:10px;
+            margin-bottom:10px;
+            overflow: hidden;
+            &:hover{
+                background: lighten($light-gray,10%);
+            }
+            .shop-info{
+                float: left;
+                h4{
+                    color:#4d4d4d;
+                }
+                span{
+                    color: #666666;
+                    font-size: 12px;
+                    display: block;
+                    word-wrap: break-word;
+                }
+            }
+            .shop-image{
+                float: right;
+                width:50px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    #map{
+        float: right;
+        min-width: (100% - 30%);
+        height: 100%;
+    }
+}
+
+section#about{
+    background:url('../img/world_map_2.png') no-repeat center center;
+    width: 100%;
+    height:87vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; 
+    article#aboutUs{
+        flex-basis: 60%;
+        background: #e6f5ff;
+        padding:20px;
+        box-sizing: border-box;
+        margin-top:50px;
+        border: 1px solid silver;
+        border-radius:3px;
+        opacity: 0.7;
+    }
+    aside#contactUs{
+        flex-basis: 30%;
+        background: #e6f5ff;
+        padding:20px;
+        box-sizing: border-box;
+        margin-top:50px;
+        border: 1px solid silver;
+        border-radius:3px;
+        opacity: 0.7;
+        form{
+            h3{
+                margin-bottom: 15px;
+            }
+            div{
+                margin-bottom:8px;
+            }
+            label{
+                display: block;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            input, textarea{
+                width:100%;
+                height: 25px;
+                padding-left:6px;
+                box-sizing: border-box;
+            }
+            textarea{
+                height: 150px;
+            }
+            button{
+                border:none;
+                padding:10px 15px;
+                color: $font-color;
+                background:$nav-color;
+                cursor: pointer;
+                transition: all .3s ease-in-out;
+                &:hover{
+                    background:#07112c;
+                }
+            }
+        }
+    }
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
+    .modal-content{
+        background:#f4f4f4;
+        margin: 10% auto;
+        width: 30%;
+        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.2);
+        animation-name: modalopen;
+        animation-duration: 1s;
+        .closeBtn{
+            color: $light-gray;
+            float: right;
+            font-size: 30px;
+            position: relative;
+            top:-4px;
+            &:hover{
+                color:#d42727;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+        .modal-header{
+            border-bottom: 1px solid $middle-gray;
+            padding: 20px;            
+            background: lighten($nav-color, 20%);
+            h2{
+                color: $light-gray;
+            }
+        }
+        .modal-body{
+            padding: 20px;
+            .details-data{
+                font-size: 18px;
+                border-bottom: 1px dotted silver;
+                color: $dark-blue;
+                &:hover{
+                    background: darken($body-color, 5%);
+                    cursor: pointer;
+                }
+                &:last-child{
+                    border-bottom: none;
+                }
+                i{
+                    width: 20px;
+                    text-align: center;
+                    margin-right: 15px;
+                    margin-left:10px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes modalopen{
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+footer{
+    width:100%;
+    background:$nav-color;
+    color:$font-color;
+    font-weight: 600;
+    padding: 14px 0px;
+    text-align: center;
+    border-top: 2px solid $active-page;
+}
+
+@media screen and(max-width:1200px){
+    #search-area{
+            #sort-coffee-shops{
+                float:left;
+                margin-bottom: 15px;
+            button{
+                &:hover{
+                    background: $font-color;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    #main-content{
+        #coffe-shops-list{
+            min-width: 50%;
+        }
+        #map{
+            min-width: (100% - 50%);
+        }
+    }
+    .modal{
+        .modal-content{
+            margin: 20% auto;
+            width: 50%;
+        }
+    }
+}
+@media screen and(max-width:992px){
+    header{
+        #brandname{
+            h1{
+                font-size: 40px;
+            }
+        }
+    }
+    #search-area{
+        form{
+            display: none;
+        }
+        #sort-coffee-shops{
+            button{
+                padding:8px 13px;
+                font-size:16px;
+            }
+        }
+    }
+    #main-content{
+        #coffe-shops-list{
+            .shop-thumb{
+                .shop-info{
+                    float: left;
+                    h4{
+                        font-size: 20px;
+                    }
+                    span{
+                        font-size: 15px;
+                    }
+                }
+                .shop-image{
+                    width:65px;
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width:768px){
+    header{
+        position: relative;
+        #brandname{
+            h1{
+                font-size: 50px;
+            }
+        }
+        .menu-icon{
+            display: block;
+        }
+        nav{
+            float:none;
+            width:100%;
+            margin: 0;
+            position: absolute;
+            top:72px;
+            left:0px;
+            z-index: 999;
+            background:$nav-color;
+            opacity: 0.95;
+        }
+        ul{
+            margin-top:0;
+            width:100%;
+            overflow: hidden;
+            height: 0;
+            opacity: 0.9;
+        }
+        li{
+            display: block;
+            text-align: center;
+            width:100%;
+            margin:0;
+            border-bottom:1px solid $black;
+            a{
+                font-size:30px;
+                width:100%;
+                &:after{
+                    content:"";
+                    display: block;
+                    width: 0;
+                    height: 0px;
+                    background: 0;
+                    transition: none;
+                }
+                &:hover{
+                    background: lighten($nav-color, 10%);
+                }
+            }
+        }
+        .open{
+            height: auto;
+        }
+    }
+    #search-area{
+        #sort-coffee-shops{
+            float:none;
+            text-align: center;
+            button{
+                padding:8px 13px;
+                background: #d9d9d9;
+                font-size: 20px;
+            }
+        }
+    }
+    #main-content{
+        #coffe-shops-list{
+            float:none;
+            width: 100%;
+            height: 50%;
+            border-right: none;
+            border-bottom: 1px solid #000;
+            overflow: auto;
+            .shop-thumb{
+                .shop-info{
+                    h4{
+                        font-size: 24px;
+                    }
+                    span{
+                        font-size: 18px;
+                    }
+                }
+                .shop-image{
+                    float: right;
+                    width:80px;
+                }
+            }
+        }
+        #map{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    section#about{
+        height:100%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        article#aboutUs{
+            flex:1;
+            margin-left:50px;
+            margin-right:50px;
+            width:85%;
+        }
+        aside#contactUs{
+            flex:1;
+            margin-left:50px;
+            margin-right:50px;
+            margin-bottom: 50px;
+            width:85%;
+        }
+    }
+    .modal{
+        .modal-content{
+            margin: 30% auto;
+            width: 70%;
+        }
+    }
+}
+@media screen and(max-width:440px){
+    header{
+        position: relative;
+        #brandname{
+            h1{
+                font-size: 30px;
+            }
+        }
+    }
+    #search-area{
+        #sort-coffee-shops{
+            text-align: center;
+            button{
+                display: block;
+                background: #d9d9d9;
+                margin: 10px auto;
+                width:200px;
+            }
+        }
+    }
+    #main-content{
+        #coffe-shops-list{
+            float:none;
+            width: 100%;
+            height: 50%;
+            border-right: none;
+            border-bottom: 1px solid #000;
+            overflow: auto;
+            .shop-thumb{
+                .shop-info{
+                    h4{
+                        font-size: 24px;
+                    }
+                    span{
+                        font-size: 18px;
+                    }
+                }
+                .shop-image{
+                    float: right;
+                    width:80px;
+                }
+            }
+        }
+        #map{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
